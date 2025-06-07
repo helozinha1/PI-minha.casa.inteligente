@@ -1,0 +1,94 @@
+{
+  "devices": {
+    "pool-temp": {
+      "status": "Desligado",
+      "currentTemp": 28,
+      "minTemp": 18,
+      "maxTemp": 35
+    },
+    "house-temp": {
+      "status": "Ligado",
+      "currentTemp": 24,
+      "minTemp": 18,
+      "maxTemp": 30
+    },
+    "light-sala": {
+      "status": "Desligado"
+    },
+    "light-cozinha": {
+      "status": "Desligado"
+    },
+    "light-quarto": {
+      "status": "Desligado"
+    },
+    "light-banheiro": {  
+      "status": "Desligado"
+    },
+    "tv-sala": {
+      "status": "Desligado"
+    },
+    "tv-quarto": {
+      "status": "Desligado"
+    },
+    "tv-quarto2": { 
+      "status": "Desligado"
+    },
+    "notebook": {
+      "status": "Desligado"
+    },
+    "ac-sala": {
+      "status": "Desligado",
+      "currentTemp": 22,
+      "minTemp": 16,
+      "maxTemp": 28
+    },
+    "ac-quarto": {
+      "status": "Desligado",
+      "currentTemp": 22,
+      "minTemp": 16,
+      "maxTemp": 28
+    },
+    "ac-quarto2": { 
+      "status": "Desligado",
+      "currentTemp": 22,
+      "minTemp": 16,
+      "maxTemp": 28
+    },
+    "garagem": {
+      "status": "Trancado"
+    },
+    "porta-entrada": {
+      "status": "Trancado"
+    },
+    "persiana-sala": {
+      "status": "Fechadas"
+    },
+    "persiana-quarto": {
+      "status": "Fechadas"
+    },
+    "persiana-filhos": {
+      "status": "Fechadas"
+    },
+    "camera-1": {
+        "status": "Desligado"
+    },
+    "camera-2": {
+        "status": "Desligado"
+    },
+    "camera-3": {
+        "status": "Desligado"
+    },
+    "camera-4": {
+        "status": "Desligado"
+    },
+    "camera-5": {
+        "status": "Desligado"
+    },
+    "camera-6": {
+        "status": "Desligado"
+    },
+    "camera-7": {
+        "status": "Desligado"
+    }
+  }
+}

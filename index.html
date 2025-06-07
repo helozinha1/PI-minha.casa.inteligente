@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hagma Smart Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="tablet-container">
+        <div class="tablet-frame">
+            <div class="tablet-screen">
+                <header class="header">
+                    <h1>Hagma Smart Home</h1>
+                    <div class="date-time">
+                        <span id="current-time"></span>
+                        <span id="current-date"></span>
+                    </div>
+                </header>
+
+                <div class="main-dashboard">
+                    <div class="card-group">
+                        <div class="card light-control" data-device="light-sala">
+                            <span class="material-icons icon">lightbulb</span>
+                            <h3>Iluminação Sala</h3>
+                            <div class="status">
+                                <span class="material-icons status-icon off">power</span>
+                                <span class="status-text">Desligada</span>
+                            </div>
+                            <div class="actions">
+                                <button class="button button-on">Ligar</button>
+                                <button class="button button-off">Desligar</button>
+                            </div>
+                        </div>
+
+                        <div class="card light-control" data-device="light-cozinha">
+                            <span class="material-icons icon">lightbulb</span>
+                            <h3>Iluminação Cozinha</h3>
+                            <div class="status">
+                                <span class="material-icons status-icon off">power</span>
+                                <span class="status-text">Desligada</span>
+                            </div>
+                            <div class="actions">
+                                <button class="button button-on">Ligar</button>
+                                <button class="button button-off">Desligar</button>
+                            </div>
+                        </div>
+
+                        <div class="card house-temp-control" data-device="house-temp">
+                            <span class="material-icons icon">thermostat</span>
+                            <h3>Temperatura Casa</h3>
+                            <p class="current-temp">24°C</p>
+                            <p class="status-text">Ligado</p>
+                            <div class="actions">
+                                <button class="button button-temp">-</button>
+                                <button class="button button-temp">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-group">
+                        <div class="card light-control" data-device="light-quarto">
+                            <span class="material-icons icon">lightbulb</span>
+                            <h3>Iluminação Quarto Principal</h3>
+                            <div class="status">
+                                <span class="material-icons status-icon off">power</span>
+                                <span class="status-text">Desligada</span>
+                            </div>
+                            <div class="actions">
+                                <button class="button button-on">Ligar</button>
+                                <button class="button button-off">Desligar</button>
+                            </div>
+                        </div>
+
+                        <div class="card light-control" data-device="light-banheiro">
+                            <span class="material-icons icon">lightbulb</span>
+                            <h3>Iluminação Banheiro Social</h3>
+                            <div class="status">
+                                <span class="material-icons status-icon off">power</span>
+                                <span class="status-text">Desligada</span>
+                            </div>
+                            <div class="actions">
+                                <button class="button button-on">Ligar</button>
+                                <button class="button button-off">Desligar</button>
+                            </div>
+                        </div>
+
+                        <div class="card pool-temp-control" data-device="pool-temp">
+                            <span class="material-icons icon">pool</span>
+                            <h3>Piscina</h3>
+                            <p class="status-text">Desligado</p>
+                            <p class="current-temp">28°C</p>
+                            <div class="actions">
+                                <button class="button button-temp">-</button>
+                                <button class="button button-heater">Aquecer</button>
+                                <button class="button button-off">Desligar</button>
+                                <button class="button button-temp">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-group">
+                        <div class="card media-control" data-device="tv-sala">
+                            <span class="material-icons icon">tv</span>
+                            <h3>TV Sala</h3>
+                            <p class="status-text">Desligada</p>
+                            <div class="actions">
+                                <button class="button button-on">Ligar</button>
+                                <button class="button button-off">Desligar</button>
+                            </div>
+                        </div>
+
+                        <div class="card media-control" data-device="tv-quarto">
+                            <span class="material-icons icon">tv</span>
+                            <h3>TV Quarto</h3>
+                            <p class="status-text">Desligada</p>
+                            <div class="actions">
+                                <button class="button button-on">Ligar</button>
+                                <button class="button button-off">Desligar</button>
+                            </div>
+                        </div>
+
+                        <div class="card media-control" data-device="tv-quarto2">
+                            <span class="material-icons icon">tv</span>
+                            <h3>TV Quarto 2</h3>
+                            <p class="status-text">Desligada</p>
+                            <div class="actions">
+                                <button class="button button-on">Ligar</button>
+                                <button class="button button-off">Desligar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-group">
+                        <div class="card ac-control" data-device="ac-sala">
+                            <span class="material-icons icon">ac_unit</span>
+                            <h3>Ar Cond. Sala</h3>
+                            <p class="current-temp">22°C</p>
+                            <p class="status-text">Desligado</p>
+                            <div class="actions">
+                                <button class="button button-temp">-</button>
+                                <button class="button button-on">Ligar</button>
+                                <button class="button button-off">Desligar</button>
+                                <button class="button button-temp">+</button>
+                            </div>
+                        </div>
+
+                        <div class="card ac-control" data-device="ac-quarto">
+                            <span class="material-icons icon">ac_unit</span>
+                            <h3>Ar Cond. Quarto</h3>
+                            <p class="current-temp">22°C</p>
+                            <p class="status-text">Desligado</p>
+                            <div class="actions">
+                                <button class="button button-temp">-</button>
+                                <button class="button button-on">Ligar</button>
+                                <button class="button button-off">Desligar</button>
+                                <button class="button button-temp">+</button>
+                            </div>
+                        </div>
+
+                        <div class="card ac-control" data-device="ac-quarto2">
+                            <span class="material-icons icon">ac_unit</span>
+                            <h3>Ar Cond. Quarto 2</h3>
+                            <p class="current-temp">22°C</p>
+                            <p class="status-text">Desligado</p>
+                            <div class="actions">
+                                <button class="button button-temp">-</button>
+                                <button class="button button-on">Ligar</button>
+                                <button class="button button-off">Desligar</button>
+                                <button class="button button-temp">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-group">
+                        <div class="card media-control" data-device="notebook">
+                            <span class="material-icons icon">laptop_mac</span>
+                            <h3>Notebook</h3>
+                            <p class="status-text">Desligado</p>
+                            <div class="actions">
+                                <button class="button button-on">Ligar</button>
+                                <button class="button button-off">Desligar</button>
+                            </div>
+                        </div>
+
+                        <div class="card security-control" data-device="garagem">
+                            <span class="material-icons icon">lock</span>
+                            <h3>Garagem</h3>
+                            <p class="status-text">Destrancado</p>
+                            <div class="actions">
+                                <button class="button button-lock">Trancar</button>
+                                <button class="button button-unlock">Destrancar</button>
+                            </div>
+                        </div>
+                        <div class="card security-control" data-device="porta-entrada">
+                            <span class="material-icons icon">lock</span>
+                            <h3>Portas</h3>
+                            <p class="status-text">Destrancado</p>
+                            <div class="actions">
+                                <button class="button button-lock">Trancar</button>
+                                <button class="button button-unlock">Destrancar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-group">
+                        <div class="card blind-control" data-device="persiana-sala">
+                            <span class="material-icons icon">blinds_closed</span>
+                            <h3>Persianas Sala</h3>
+                            <p class="status-text">Fechadas</p>
+                            <div class="actions">
+                                <button class="button button-up">Abrir</button>
+                                <button class="button button-down">Fechar</button>
+                            </div>
+                        </div>
+                        <div class="card blind-control" data-device="persiana-quarto">
+                            <span class="material-icons icon">blinds_closed</span>
+                            <h3>Persianas Quarto</h3>
+                            <p class="status-text">Fechadas</p>
+                            <div class="actions">
+                                <button class="button button-up">Abrir</button>
+                                <button class="button button-down">Fechar</button>
+                            </div>
+                        </div>
+                        <div class="card blind-control" data-device="persiana-filhos">
+                            <span class="material-icons icon">blinds_closed</span>
+                            <h3>Persianas Quarto filhos</h3>
+                            <p class="status-text">Fechadas</p>
+                            <div class="actions">
+                                <button class="button button-up">Abrir</button>
+                                <button class="button button-down">Fechar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-group">
+                        <div class="card camera-view-button-card">
+                            <span class="material-icons icon">videocam</span>
+                            <h3>Câmeras de Segurança</h3>
+                            <div class="actions">
+                                <button class="button button-view" id="view-cameras-button">Visualizar Câmeras</button>
+                            </div>
+                        </div>
+                        <div class="card team-view-button-card">
+                            <span class="material-icons icon">group</span>
+                            <h3>Nossa Equipe</h3>
+                            <div class="actions">
+                                <button class="button button-view" id="view-team-button">Ver Membros</button>
+                            </div>
+                        </div>
+                        <div class="card empty-card"></div>
+                    </div>
+                </div>
+
+                <div class="cameras-screen" style="display: none;">
+                    <div class="cameras-header">
+                        <h2>Visualização das Câmeras</h2>
+                        <button class="button back-button" id="back-to-dashboard-button">Voltar</button>
+                    </div>
+                    <div class="camera-grid">
+                        <div class="camera-feed-card" data-camera="camera-1" data-device="camera-1">
+                            <h3>Câmera Entrada</h3>
+                            <div class="camera-display">
+                                <span class="material-icons camera-status-icon">videocam_off</span>
+                                <p class="camera-status-text">Desligada</p>
+                            </div>
+                            <div class="camera-actions">
+                                <button class="button button-on">Ligar</button>
+                                <button class="button button-off">Desligar</button>
+                            </div>
+                        </div>
+                        <div class="camera-feed-card" data-camera="camera-2" data-device="camera-2">
+                            <h3>Câmera Garagem</h3>
+                            <div class="camera-display">
+                                <span class="material-icons camera-status-icon">videocam_off</span>
+                                <p class="camera-status-text">Desligada</p>
+                            </div>
+                            <div class="camera-actions">
+                                <button class="button button-on">Ligar</button>
+                                <button class="button button-off">Desligar</button>
+                            </div>
+                        </div>
+                        <div class="camera-feed-card" data-camera="camera-3" data-device="camera-3">
+                            <h3>Câmera Quintal</h3>
+                            <div class="camera-display">
+                                <span class="material-icons camera-status-icon">videocam_off</span>
+                                <p class="camera-status-text">Desligada</p>
+                            </div>
+                            <div class="camera-actions">
+                                <button class="button button-on">Ligar</button>
+                                <button class="button button-off">Desligar</button>
+                            </div>
+                        </div>
+                        <div class="camera-feed-card" data-camera="camera-4" data-device="camera-4">
+                            <h3>Câmera Fundos</h3>
+                            <div class="camera-display">
+                                <span class="material-icons camera-status-icon">videocam_off</span>
+                                <p class="camera-status-text">Desligada</p>
+                            </div>
+                            <div class="camera-actions">
+                                <button class="button button-on">Ligar</button>
+                                <button class="button button-off">Desligar</button>
+                            </div>
+                        </div>
+                        
+                        <div class="camera-feed-card" data-camera="camera-5" data-device="camera-5">
+                            <h3>Câmera Sala</h3>
+                            <div class="camera-display">
+                                <span class="material-icons camera-status-icon">videocam_off</span>
+                                <p class="camera-status-text">Desligada</p>
+                            </div>
+                            <div class="camera-actions">
+                                <button class="button button-on">Ligar</button>
+                                <button class="button button-off">Desligar</button>
+                            </div>
+                        </div>
+                        <div class="camera-feed-card" data-camera="camera-6" data-device="camera-6">
+                            <h3>Câmera Cozinha</h3>
+                            <div class="camera-display">
+                                <span class="material-icons camera-status-icon">videocam_off</span>
+                                <p class="camera-status-text">Desligada</p>
+                            </div>
+                            <div class="camera-actions">
+                                <button class="button button-on">Ligar</button>
+                                <button class="button button-off">Desligar</button>
+                            </div>
+                        </div>
+                        <div class="camera-feed-card" data-camera="camera-7" data-device="camera-7">
+                            <h3>Câmera Quarto Infantil </h3>
+                            <div class="camera-display">
+                                <span class="material-icons camera-status-icon">videocam_off</span>
+                                <p class="camera-status-text">Desligada</p>
+                            </div>
+                            <div class="camera-actions">
+                                <button class="button button-on">Ligar</button>
+                                <button class="button button-off">Desligar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-screen" style="display: none;">
+    <div class="team-header">
+        <h2>Nossa Equipe</h2> <button class="button back-button" id="back-to-dashboard-from-team">Voltar</button>
+       
+    </div>
+    <div class="team-grid">
+        <div class="team-member">
+            <img src="Equipe/anne.png" alt="Foto de Helloysa da Rocha" class="member-photo">
+            <h3>Anne Gabrielly Todão</h3>
+            <p>Função: Líder do Grupo e Planta e Mapeamento</p>
+        </div>
+        <div class="team-member">
+            <img src="Equipe/ana.png" alt="Foto de Anne Gabrielly" class="member-photo">
+            <h3>Ana Giulia De Pauli</h3>
+            <p>Função: Topologia de Rede</p>
+        </div>
+        <div class="team-member">
+            <img src="Equipe/Gaby.png" alt="Foto de Gustavo Leite" class="member-photo">
+            <h3>Gabrielly Dias</h3>
+            <p>Função: Documentação e Desenvolvedora Front-End</p>
+        </div>
+        <div class="team-member">
+            <img src="Equipe/gustavo.png" alt="Foto de José Marco" class="member-photo">
+            <h3>Gustavo Leite</h3>
+            <p>Função: Descrição da Instalação e Configuração do Raspberry Pi</p>
+        </div>
+        <div class="team-member">
+            <img src="Equipe/helo.png" alt="Foto de Ana Giulia" class="member-photo">
+            <h3>Helloysa da Rocha</h3>
+            <p>Função: Trecho da Programação e Desenvolvedora Front-End</p>
+        </div>
+        <div class="team-member">
+            <img src="caminho/para/ana.jpg" alt="Foto de José" class="member-photo"> 
+            <h3>José Marco</h3>
+            <p>Função: Tabela com Endereçamento IP e Orçamento</p>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,627 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+/* Reset básico e configurações globais */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d); /* Degradê para o fundo da página */
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    overflow: hidden; /* Evita barras de rolagem no body principal */
+}
+
+/* Contêiner e Frame do Tablet */
+.tablet-container {
+    width: 90%;
+    max-width: 900px; /* Tamanho máximo do tablet */
+    aspect-ratio: 16/10; /* Proporção de um tablet na horizontal */
+    background: #0d1a3f; /* Fundo do corpo do tablet */
+    border-radius: 40px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: 8px solid rgba(255, 255, 255, 0.1); /* Borda sutil */
+}
+
+.tablet-frame {
+    width: calc(100% - 40px); /* Para criar a borda interna do tablet */
+    height: calc(100% - 40px);
+    background: #000; /* Fundo da tela quando "desligada" */
+    border-radius: 30px;
+    overflow: hidden; /* Garante que o conteúdo interno não vaze para além do frame */
+    position: relative;
+}
+
+/* Tela do Tablet (área de conteúdo principal) */
+.tablet-screen {
+    width: 100%;
+    height: 100%; /* FUNDAMENTAL: Garante que a tela preencha o frame */
+    background: linear-gradient(to bottom right, #0a1731, #0d2a57, #103d7f); /* Degradê azul escuro para a tela */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box; /* Inclui padding na largura/altura total */
+    color: #e0e0e0;
+    overflow-y: hidden; /* DESATIVADO A ROLAGEM NA TELA PRINCIPAL, VAI SER CONTROLADA POR VISIBILIDADE */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.tablet-screen::-webkit-scrollbar {
+    display: none;
+}
+
+/* Cabeçalho do Tablet */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.date-time {
+    font-size: 1.1em;
+    font-weight: 300;
+    color: #c0c0c0;
+}
+
+.date-time span {
+    display: block;
+    text-align: right;
+}
+
+/* Dashboard Principal e Grupos de Cards */
+.main-dashboard {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto; /* A rolagem agora está aqui para o dashboard */
+    padding-right: 10px; /* Para não cortar o scrollbar visível */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.main-dashboard::-webkit-scrollbar {
+    display: none;
+}
+
+.card-group {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Estilo Individual dos Cards de Controle */
+.card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 20px;
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+.card .icon {
+    font-size: 3.5em;
+    color: #8cafff;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.card h3 {
+    margin: 0 0 15px 0;
+    font-size: 1.5em;
+    color: #fff;
+    font-weight: 400;
+}
+
+.card p.current-temp {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #a0d0ff;
+    margin: 10px 0;
+}
+
+.card .status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.card .status-icon {
+    font-size: 1.8em;
+}
+
+.card .status-icon.on {
+    color: #4CAF50;
+}
+
+.card .status-icon.off {
+    color: #F44336;
+}
+
+.card .status-text {
+    font-size: 1.1em;
+    color: #c0c0c0;
+    margin-bottom: 15px;
+}
+
+.card .actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Estilo Base dos Botões */
+.button {
+    background: linear-gradient(to right, #007bff, #0056b3);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background 0.3s ease, transform 0.1s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.button:hover {
+    background: linear-gradient(to right, #0056b3, #003f8e);
+    transform: translateY(-2px);
+}
+
+.button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Cores Específicas para Tipos de Botões */
+.button-on, .button-lock, .button-up, .button-heater {
+    background: linear-gradient(to right, #4CAF50, #388E3C);
+}
+.button-on:hover, .button-lock:hover, .button-up:hover, .button-heater:hover {
+    background: linear-gradient(to right, #388E3C, #2e7d32);
+}
+
+.button-off, .button-unlock, .button-down {
+    background: linear-gradient(to right, #F44336, #D32F2F);
+}
+.button-off:hover, .button-unlock:hover, .button-down:hover {
+    background: linear-gradient(to right, #D32F2F, #c62828);
+}
+
+.button-temp {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5em;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #2196F3, #1976D2);
+}
+.button-temp:hover {
+    background: linear-gradient(to right, #1976D2, #1565C0);
+}
+
+.button-view, .back-button {
+    background: linear-gradient(to right, #FFC107, #FFA000);
+}
+.button-view:hover, .back-button:hover {
+    background: linear-gradient(to right, #FFA000, #FF8F00);
+}
+
+/* Estilo para cards vazios (para manter o layout, se houver) */
+.empty-card {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+/* --- Estilos para a Nova Tela de Câmeras dentro do Tablet --- */
+.cameras-screen {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    background: linear-gradient(to bottom, #112244, #081a38);
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.cameras-screen::-webkit-scrollbar {
+    display: none;
+}
+
+.cameras-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cameras-header h2 {
+    margin: 0;
+    font-size: 2.5em;
+    color: #fff;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.camera-grid {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+    align-content: start;
+}
+
+.camera-feed-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.camera-feed-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+.camera-feed-card h3 {
+    margin: 0 0 15px 0;
+    font-size: 1.4em;
+    color: #fff;
+    font-weight: 400;
+}
+
+.camera-display {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #000;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #aaa;
+    font-size: 1em;
+    overflow: hidden;
+    transition: background-image 0.5s ease, background-color 0.5s ease;
+}
+
+.camera-display .material-icons {
+    font-size: 3em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.camera-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* --- Estilos para a Nova Tela da Equipe dentro do Tablet --- */
+.team-screen {
+    width: 100%;
+    height: 100%;
+    display: flex; /* Para controlar o layout dos elementos internos */
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box; /* Garante que o padding seja incluído na largura/altura total */
+    background: linear-gradient(to bottom, #1a2a6c, #0a1a3f); /* Um degradê que combine com o tema geral */
+    overflow-y: auto; /* Adiciona rolagem se o conteúdo da equipe for muito grande */
+    -ms-overflow-style: none; /* Esconde a scrollbar no IE/Edge */
+    scrollbar-width: none; /* Esconde a scrollbar no Firefox */
+}
+
+/* Esconde a scrollbar para Webkit (Chrome, Safari) */
+.team-screen::-webkit-scrollbar {
+    display: none;
+}
+
+.team-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.team-header h2 {
+    margin: 0;
+    font-size: 2.5em;
+    color: #fff;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.team-grid {
+    flex-grow: 1; /* Permite que o grid ocupe o espaço restante */
+    display: grid;
+    /* Grid responsivo: 2 colunas em telas maiores, 1 coluna em telas menores */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+    align-content: start; /* Alinha os itens ao topo do grid */
+}
+
+.team-member {
+    background: rgba(255, 255, 255, 0.12); /* Um pouco mais opaco para destaque */
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px); /* Blur um pouco mais forte */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-8px); /* Eleva mais ao passar o mouse */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Sombra mais intensa */
+}
+
+/* Remover o ícone padrão se a foto estiver presente */
+.team-member .icon {
+    display: none; /* Esconde o ícone padrão se você estiver usando uma imagem */
+}
+
+.team-member h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.6em;
+    color: #fff;
+    font-weight: 700; /* Nome mais forte */
+}
+
+.team-member p {
+    margin: 0;
+    font-size: 1.1em;
+    color: #c0c0c0;
+    font-weight: 300;
+}
+
+/* --- Estilos para as Fotos dos Membros (Membro em Círculo) --- */
+.member-photo {
+    width: 120px; /* Largura da foto */
+    height: 120px; /* Altura da foto (igual à largura para um círculo perfeito) */
+    border-radius: 50%; /* Transforma a foto em um círculo */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem ser distorcida */
+    object-position: center; /* Centraliza a imagem dentro do círculo */
+    margin-bottom: 15px; /* Espaço entre a foto e o nome do membro */
+    border: 4px solid #00C8F8; /* Uma borda vibrante para a foto, combinando com o tema */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6); /* Sombra para destacar a foto */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição para efeitos de hover */
+}
+
+.member-photo:hover {
+    transform: scale(1.05); /* Leve aumento ao passar o mouse */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 30px #00C8F8; /* Sombra mais intensa e brilho azul */
+}
+
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .tablet-container {
+        width: 95%;
+        padding: 15px;
+    }
+    .tablet-frame {
+        width: calc(100% - 30px);
+        height: calc(100% - 30px);
+    }
+    .header h1 {
+        font-size: 1.8em;
+    }
+    .date-time {
+        font-size: 1em;
+    }
+    .card {
+        min-width: calc(50% - 20px);
+    }
+    .card .icon {
+        font-size: 3em;
+    }
+    .card h3 {
+        font-size: 1.3em;
+    }
+    .button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    .cameras-header h2 {
+        font-size: 2em;
+    }
+    .camera-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    /* Responsividade para a tela de equipe */
+    .team-header h2 {
+        font-size: 2em;
+    }
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+    }
+    .team-member .icon {
+        font-size: 3.5em;
+    }
+    .team-member h3 {
+        font-size: 1.4em;
+    }
+    .team-member p {
+        font-size: 1em;
+    }
+    .member-photo {
+        width: 100px;
+        height: 100px;
+        border-width: 3px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        min-height: auto;
+        padding: 20px 0;
+    }
+    .tablet-container {
+        flex-direction: column;
+        aspect-ratio: 10/16;
+        padding: 10px;
+        width: 98%;
+        max-width: 500px;
+    }
+    .tablet-frame {
+        width: calc(100% - 20px);
+        height: calc(100% - 20px);
+    }
+    .tablet-screen {
+        padding: 15px;
+    }
+    .header {
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .header h1 {
+        font-size: 1.6em;
+        margin-bottom: 5px;
+    }
+    .date-time {
+        font-size: 0.9em;
+    }
+    .main-dashboard {
+        gap: 15px;
+    }
+    .card-group {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .card {
+        min-width: 90%;
+        padding: 15px;
+    }
+    .card .icon {
+        font-size: 2.8em;
+    }
+    .card h3 {
+        font-size: 1.2em;
+    }
+    .button {
+        padding: 8px 15px;
+        font-size: 0.85em;
+    }
+    .cameras-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .cameras-header h2 {
+        font-size: 1.8em;
+    }
+    .camera-grid {
+        grid-template-columns: 1fr;
+    }
+    /* Responsividade para a tela de equipe */
+    .team-screen {
+        padding: 15px;
+    }
+    .team-header {
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+    .team-header h2 {
+        font-size: 1.8em;
+        text-align: center;
+    }
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .team-member {
+        padding: 15px;
+    }
+    .team-member .icon {
+        font-size: 3em;
+    }
+    .team-member h3 {
+        font-size: 1.3em;
+    }
+    .team-member p {
+        font-size: 0.9em;
+    }
+    .member-photo {
+        width: 90px;
+        height: 90px;
+        margin-bottom: 10px;
+        border-width: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    .member-photo {
+        width: 80px;
+        height: 80px;
+    }
+}
