@@ -46,7 +46,7 @@ Para visualizar e interagir com o simulador, siga estes passos simples:
 1.  **Clone ou Baixe o Repositório**:
     Se este projeto estiver em um repositório Git, clone-o:
     ```bash
-    git clone 
+    git clone https://github.com/helozinha1/PI-minha.casa.inteligente
     ```
     Ou baixe os arquivos ZIP e descompacte-os.
 
